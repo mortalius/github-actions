@@ -1,0 +1,13 @@
+name: Run tests (reusable)
+
+on:
+  workflow_call:
+
+jobs:
+  check:
+    name: Check and test code
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo TESTS ARE COMPLETED
