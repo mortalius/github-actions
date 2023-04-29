@@ -1,0 +1,15 @@
+name: Run Linting (reusable)
+
+on:
+  push:
+  workflow_call:
+  workflow_dispatch:
+
+jobs:
+  check:
+    name: Lint Tests
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Test
+        run: echo LINT TESTS RUN

@@ -1,7 +1,9 @@
 name: Run tests (reusable)
 
 on:
+  push:
   workflow_call:
+  workflow_dispatch:
 
 jobs:
   check:

@@ -1,0 +1,34 @@
+name: On Push workflow
+
+on:
+  push:
+
+jobs:
+  run-test:
+    uses: ./.github/workflows/run-tests-reusable.yml
+
+  run-lint:
+    uses: ./.github/workflows/run-linting-reusable.yml
+
+  # Requires test and lint be completed
+  this-is-like-prod-deploy:
+
+    runs-on: ubuntu-latest
+    needs: [run-test,run-lint]
+
+    steps:
+
+    - name: Mock PROD deploy
+      run: echo "Hello PROD"
+
+  # Not requiring successful dependent jobs
+  this-is-like-dev-deploy:
+
+    runs-on: ubuntu-latest
+    needs: [run-test,run-lint]
+    # Run even if test and lint fail, but job still can be cancelled
+    if: success() || failure()
+
+    steps:
+    - name: Mock DEV deploy
+      run: echo "Hello DEV"
