@@ -5,10 +5,10 @@ on:
 
 jobs:
   run-test:
-    uses: ./.github/workflows/run-tests-reusable.yml
+    uses: ./.github/workflows/run-tests-reusable.yaml
 
   run-lint:
-    uses: ./.github/workflows/run-linting-reusable.yml
+    uses: ./.github/workflows/run-linting-reusable.yaml
 
   # Requires test and lint be completed
   this-is-like-prod-deploy:
