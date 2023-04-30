@@ -1,25 +1,14 @@
-name: On Push workflow
+name: On Manual Dispatch
 
 on:
-  push:
+  workflow_dispatch:
 
 jobs:
   run-test:
-    uses: ./.github/workflows/run-tests-reusable.yml
+    uses: ./.github/reusable/run-tests-reusable.yaml
 
   run-lint:
-    uses: ./.github/workflows/run-linting-reusable.yml
-
-  # Requires test and lint be completed
-  this-is-like-prod-deploy:
-
-    runs-on: ubuntu-latest
-    needs: [run-test,run-lint]
-
-    steps:
-
-    - name: Mock PROD deploy
-      run: echo "Hello PROD"
+    uses: ./.github/reusable/run-linting-reusable.yaml
 
   # Not requiring successful dependent jobs
   this-is-like-dev-deploy:
@@ -32,3 +21,16 @@ jobs:
     steps:
     - name: Mock DEV deploy
       run: echo "Hello DEV"
+
+
+  this-is-like-prod-deploy:
+
+    runs-on: ubuntu-latest
+    # Requires test and lint be completed
+    needs: [run-test,run-lint,this-is-like-dev-deploy]
+
+    steps:
+
+    - name: Mock PROD deploy
+      run: echo "Hello PROD"
+
