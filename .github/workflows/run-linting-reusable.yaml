@@ -12,3 +12,6 @@ jobs:
     steps:
       - name: Test
         run: echo LINT TESTS RUN
+
+      - name: Fail!
+        run: exit 1
