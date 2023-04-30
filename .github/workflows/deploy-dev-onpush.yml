@@ -14,6 +14,7 @@ jobs:
   # Not requiring successful dependent jobs
   this-is-like-dev-deploy:
 
+    name: Fake DEV Deploy
     runs-on: ubuntu-latest
     needs: [run-test,run-lint]
     # Run even if test and lint fail, but job still can be cancelled
