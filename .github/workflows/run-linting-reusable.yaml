@@ -1,15 +1,14 @@
-name: Run tests (reusable)
+name: Run Linting (reusable)
 
 on:
-  push:
   workflow_call:
   workflow_dispatch:
 
 jobs:
   check:
-    name: Check and test code
+    name: Lint Tests
     runs-on: ubuntu-latest
 
     steps:
       - name: Test
-        run: echo TESTS ARE COMPLETED
+        run: echo LINT TESTS RUN

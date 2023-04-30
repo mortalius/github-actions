@@ -1,0 +1,14 @@
+name: Common Checks
+on:
+  push:
+    # Do not run on branches for Dev and Prod to avoid duplicated workflow runs
+    branches-ignore:
+      - master
+      - develop
+
+jobs:
+  run-test:
+    uses: ./.github/reusable/run-tests-reusable.yaml
+
+  run-lint:
+    uses: ./.github/reusable/run-linting-reusable.yaml
