@@ -7,10 +7,10 @@ on:
 
 jobs:
   run-test:
-    uses: ./.github/reusable/run-tests-reusable.yaml
+    uses: ./.github/workflows/run-tests-reusable.yaml
 
   run-lint:
-    uses: ./.github/reusable/run-linting-reusable.yaml
+    uses: ./.github/workflows/run-linting-reusable.yaml
 
   # Requires test and lint be completed
   this-is-like-prod-deploy:

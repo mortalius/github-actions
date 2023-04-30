@@ -6,10 +6,10 @@ on:
       - develop
 jobs:
   run-test:
-    uses: ./.github/reusable/run-tests-reusable.yaml
+    uses: ./.github/workflows/run-tests-reusable.yaml
 
   run-lint:
-    uses: ./.github/reusable/run-linting-reusable.yaml
+    uses: ./.github/workflows/run-linting-reusable.yaml
 
   # Not requiring successful dependent jobs
   this-is-like-dev-deploy:
